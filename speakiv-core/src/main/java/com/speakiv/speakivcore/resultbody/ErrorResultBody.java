@@ -1,4 +1,4 @@
-package com.vnk.speakivcore.resultbody;
+package com.speakiv.speakivcore.resultbody;
 
 public class ErrorResultBody extends ResultBody {
     public ErrorResultBody() {
