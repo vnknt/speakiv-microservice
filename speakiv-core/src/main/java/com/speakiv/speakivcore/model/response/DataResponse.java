@@ -1,16 +1,16 @@
-package com.speakiv.speakivcore.resultbody;
+package com.speakiv.speakivcore.model.response;
 
-public class DataResultBody<T> extends ResultBody {
+public class DataResponse<T> extends Response {
     private T data;
-    public DataResultBody(boolean success) {
+    public DataResponse(boolean success) {
         super(success);
     }
 
-    public DataResultBody(boolean success, String message) {
+    public DataResponse(boolean success, String message) {
         super(success, message);
     }
 
-    public DataResultBody(boolean success, String message, T data){
+    public DataResponse(boolean success, String message, T data){
         super(success,message);
         this.data=data;
     }

@@ -1,12 +1,12 @@
-package com.speakiv.speakivcore.resultbody;
+package com.speakiv.speakivcore.model.response;
 
-public class ResultBody {
+public class Response {
     private boolean success;
     private String message;
-    public ResultBody(boolean success){
+    public Response(boolean success){
         this.success=success;
     }
-    public ResultBody(boolean success , String message){
+    public Response(boolean success , String message){
         this.message=message;
         this.success=success;
     }
