@@ -1,4 +1,4 @@
-package com.speakiv.socialservice.model;
+package com.speakiv.socialservice.model.entity;
 
 import lombok.Data;
 

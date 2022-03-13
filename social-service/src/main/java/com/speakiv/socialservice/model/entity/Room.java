@@ -1,4 +1,4 @@
-package com.speakiv.socialservice.model;
+package com.speakiv.socialservice.model.entity;
 
 import lombok.Data;
 
@@ -28,4 +28,7 @@ public class Room {
 
     @OneToMany
     private List<ActiveUser> activeUsers;
+
+    @OneToOne
+    private Language language;
 }
