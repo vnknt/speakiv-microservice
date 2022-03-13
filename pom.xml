@@ -9,7 +9,6 @@
         <module>social-service</module>
         <module>auth-service</module>
         <module>speakiv-common</module>
-        <module>speakiv-security</module>
         <module>api-gateway</module>
 		<module>eureka-server</module>
 	</modules>
