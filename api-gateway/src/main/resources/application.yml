@@ -1,0 +1,32 @@
+server:
+  port: 8082
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: false
+  instance:
+    preferIpAddress: true
+spring:
+  application:
+    name: api-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: account-service
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - RewritePath=/(?<segment>.*), /$\{segment}
+
+        - id: social-service
+          uri: lb://SOCIAL-SERVICE
+          predicates:
+            - Path=/api/room/**
+            - Path=/api/message/**
+            - Path=/api/friendship/**
+          filters:
+            - RewritePath=/(?<segment>.*), /$\{segment}
