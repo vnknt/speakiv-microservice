@@ -2,6 +2,9 @@ package com.speakiv.speakivcore.model.response;
 
 public class DataResponse<T> extends Response {
     private T data;
+    public DataResponse(){
+        super();
+    }
     public DataResponse(boolean success) {
         super(success);
     }
