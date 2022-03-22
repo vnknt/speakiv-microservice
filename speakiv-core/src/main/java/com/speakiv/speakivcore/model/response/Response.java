@@ -1,10 +1,15 @@
 package com.speakiv.speakivcore.model.response;
 
-public class Response {
+import java.io.Serializable;
+
+public class Response implements Serializable {
     private boolean success;
     private String message;
     public Response(boolean success){
         this.success=success;
+    }
+    Response(){
+
     }
     public Response(boolean success , String message){
         this.message=message;
