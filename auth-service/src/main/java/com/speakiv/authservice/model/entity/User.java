@@ -1,10 +1,9 @@
-package com.speakiv.accountservice.model;
+package com.speakiv.authservice.model.entity;
 
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Collection;
-
 
 @Table(name = "Users")
 @Entity
@@ -23,12 +22,6 @@ public class User {
 
     @Column(name="email",nullable = false)
     private String email;
-
-    @Column(name="is_active",nullable = false)
-    private Boolean isActive;
-
-    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    private UserDetail userDetail;
 
     @ManyToMany
     private Collection<UserRole> roles;
