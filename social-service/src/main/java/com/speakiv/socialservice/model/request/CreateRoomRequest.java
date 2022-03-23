@@ -6,5 +6,9 @@ import lombok.Data;
 
 @Data
 public class CreateRoomRequest extends TokenRequest {
-    private RoomDto roomDetail;
+    private String title;
+
+    private String language;
+
+    private Integer maxCapacity;
 }

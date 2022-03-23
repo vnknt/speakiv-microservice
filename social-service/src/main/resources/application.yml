@@ -1,6 +1,17 @@
 spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/speakiv
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
   application:
     name: social-service
+  cloud:
+    config:
+      enabled: false
 eureka:
   client:
     service-url:

@@ -21,12 +21,13 @@ spring:
             - Path=/api/user/**
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
-
+            - AuthFilter
         - id: social-service
           uri: lb://SOCIAL-SERVICE
           predicates:
             - Path=/api/room/**
-            - Path=/api/message/**
-            - Path=/api/friendship/**
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
+            - AuthFilter
+    config:
+      enabled: false
