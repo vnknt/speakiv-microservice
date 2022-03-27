@@ -4,6 +4,7 @@ import com.speakiv.socialservice.model.dto.RoomDto;
 import com.speakiv.socialservice.model.entity.Room;
 import com.speakiv.socialservice.model.request.CreateRoomRequest;
 import com.speakiv.socialservice.service.RoomService;
+import com.speakiv.speakivcommon.utils.AuthUtil;
 import com.speakiv.speakivcore.model.response.DataResponse;
 import com.speakiv.speakivcore.model.response.Response;
 import com.speakiv.speakivcore.model.response.SuccessDataResponse;
@@ -25,8 +26,14 @@ public class RoomApi {
     private RoomService roomService;
     @PostMapping("/create")
     public ResponseEntity<Response> createRoom(@RequestBody CreateRoomRequest request){
-        Response response = new SuccessResponse() ;
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Response response ;
+        Long userId = AuthUtil.getUserIdFromSecurityContext(SecurityContextHolder.getContext());
+
+        RoomDto roomDto = new RoomDto();
+        roomDto.setTitle(request.getTitle());
+        roomDto.setLanguage(request.getLanguage());
+        roomDto.setMaxCapacity(request.getMaxCapacity());
+        response = roomService.createRoom(roomDto,userId);
         return ResponseEntity.ok(response);
     }
 
@@ -40,7 +47,6 @@ public class RoomApi {
     @GetMapping
     public ResponseEntity<DataResponse<List<Room>>> getAll(){
         DataResponse<List<Room>> response = this.roomService.getAll();
-
         return ResponseEntity.ok(response);
     }
 
